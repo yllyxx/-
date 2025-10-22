@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 患者基本信息 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_patient_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张三"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
+
+                <TextView
+                    android:id="@+id/tv_patient_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID: P001"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="2dp" />
+
+                <!-- 新增：患者附加信息（年龄、性别、治疗内容） -->
+                <TextView
+                    android:id="@+id/tv_patient_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25岁 | 男 | 腰椎疼痛..."
+                    android:textSize="11sp"
+                    android:textColor="#999999"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_frequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="频率: 150Hz"
+                android:textSize="12sp"
+                android:textColor="#4CAF50"
+                android:background="#E8F5E8"
+                android:padding="4dp"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+        <!-- 通道强度摘要 -->
+        <TextView
+            android:id="@+id/tv_channel_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通道强度: 1路:50, 2路:60, 3路:70, 4路:80..."
+            android:textSize="11sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="8dp"
+            android:background="#F8F8F8"
+            android:padding="6dp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- 时间和操作按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_update_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="更新时间: 2024-01-01 10:00"
+                android:textSize="10sp"
+                android:textColor="#999999" />
+
+            <Button
+                android:id="@+id/btn_load_parameters"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="加载参数"
+                android:textSize="10sp"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp"
+                android:minWidth="0dp"
+                android:paddingHorizontal="12dp" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="删除"
+                android:textSize="10sp"
+                android:backgroundTint="#F44336"
+                android:textColor="#FFFFFF"
+                android:minWidth="0dp"
+                android:paddingHorizontal="12dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">电子针疗仪</string>
+
+    <!-- 连接状态 -->
+    <string name="connection_status">连接状态</string>
+    <string name="device_id">设备ID</string>
+    <string name="connected">已连接</string>
+    <string name="disconnected">未连接</string>
+    <string name="connect">蓝牙连接</string>
+    <string name="disconnect">断开连接</string>
+
+    <!-- 病人记录 -->
+    <string name="patient_record">病人记录</string>
+    <string name="save">保存</string>
+    <string name="load">加载</string>
+    <string name="history">历史记录</string>
+
+    <!-- 定时设置 -->
+    <string name="timer_setting">定时设置</string>
+    <string name="start">开始</string>
+    <string name="stop">停止</string>
+
+    <!-- 频率调节 -->
+    <string name="frequency_adjustment">频率调节</string>
+
+    <!-- 波形选择 -->
+    <string name="waveform_selection">波形选择</string>
+    <string name="continuous_wave">连续波</string>
+    <string name="intermittent_wave">断续波</string>
+    <string name="sparse_wave">疏密波</string>
+
+    <!-- 波形示意 -->
+    <string name="waveform_display">波形示意</string>
+
+    <!-- 8路输出强度控制 -->
+    <string name="intensity_control">8路输出强度控制</string>
+    <string name="channel_1">1路</string>
+    <string name="channel_2">2路</string>
+    <string name="channel_3">3路</string>
+    <string name="channel_4">4路</string>
+    <string name="channel_5">5路</string>
+    <string name="channel_6">6路</string>
+    <string name="channel_7">7路</string>
+    <string name="channel_8">8路</string>
+    <string name="channel_9">9路</string>
+    <string name="channel_10">10路</string>
+    <string name="channel_11">11路</string>
+    <string name="channel_12">12路</string>
+
+    <!-- 提示信息 -->
+    <string name="connecting">正在连接设备...</string>
+    <string name="connect_success">设备连接成功</string>
+    <string name="disconnect_success">设备已断开</string>
+    <string name="settings_saved">设置已保存</string>
+    <string name="settings_loaded">设置已加载</string>
+    <string name="show_history">显示历史记录</string>
+    <string name="please_connect_device">请先连接设备</string>
+    <string name="treatment_started">开始治疗</string>
+    <string name="treatment_stopped">治疗已停止</string>
+    <string name="treatment_completed">治疗完成</string>
+</resources>

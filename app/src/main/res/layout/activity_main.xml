@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0E0EE"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="电子针疗仪控制系统"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 第一行：连接状态和病人记录 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <!-- 连接状态卡片 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:minHeight="100dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="连接状态："
+                            android:textSize="12sp"
+                            android:textColor="#666666" />
+
+                        <TextView
+                            android:id="@+id/tv_connection_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="已连接"
+                            android:textSize="14sp"
+                            android:textColor="#4CAF50"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="设备ID："
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/tv_device_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="666888"
+                            android:textSize="14sp"
+                            android:textColor="#333333" />
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_connect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="蓝牙连接"
+                        android:backgroundTint="#ADD8E6"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="36dp"
+                        android:paddingHorizontal="12dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 病人记录卡片 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:minHeight="100dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="病人记录"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- 第一行按钮 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_save"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="保存"
+                            android:backgroundTint="#ADD8E6"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:layout_marginEnd="4dp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_load"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="加载"
+                            android:backgroundTint="#F0F0F0"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:layout_marginStart="4dp" />
+
+                    </LinearLayout>
+
+                    <!-- 第二行按钮 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_export"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="导出"
+                            android:backgroundTint="#F0F0F0"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:layout_marginEnd="4dp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_import"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="导入"
+                            android:backgroundTint="#F0F0F0"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:layout_marginStart="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+
+        <!-- 第二行：定时设置和频率调节 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <!-- 定时设置卡片 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:minHeight="100dp"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="定时设置"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_timer"
+                            android:layout_width="70dp"
+                            android:layout_height="36dp"
+                            android:background="#F0F0F0"
+                            android:gravity="center"
+                            android:text="30:00"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_minus"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="4dp"
+                            android:backgroundTint="#F0F0F0"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:padding="0dp"
+                            android:text="−"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_plus"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="2dp"
+                            android:backgroundTint="#F0F0F0"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:padding="0dp"
+                            android:text="+"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_start"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#90EE90"
+                            android:text="开始"
+                            android:textColor="#000000"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 频率调节卡片 -->
+            <!-- 频率调节卡片 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:minHeight="100dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="频率调节"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- 新增：减号按钮 -->
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_freq_minus"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:backgroundTint="#F0F0F0"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:padding="0dp"
+                            android:text="−"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1Hz"
+                            android:textSize="10sp"
+                            android:textColor="#666666"
+                            android:layout_marginStart="4dp" />
+
+                        <SeekBar
+                            android:id="@+id/seekbar_frequency"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="99"
+                            android:progress="0"
+                            android:layout_marginHorizontal="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:text="100Hz"
+                            android:textColor="#666666"
+                            android:textSize="10sp" />
+
+                        <!-- 新增：加号按钮 -->
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_freq_plus"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="4dp"
+                            android:backgroundTint="#F0F0F0"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:padding="0dp"
+                            android:text="+"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_frequency_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1Hz"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- 第三行：波形选择和波形示意 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <!-- 波形选择卡片 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:minHeight="100dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="波形选择"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_continuous_wave"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="连续波"
+                            android:backgroundTint="#F0F0F0"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:layout_marginEnd="4dp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_intermittent_wave"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="断续波"
+                            android:backgroundTint="#F0F0F0"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:layout_marginHorizontal="2dp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_sparse_wave"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:text="疏密波"
+                            android:backgroundTint="#F0F0F0"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:layout_marginStart="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 波形示意卡片 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:minHeight="100dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="波形示意"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout
+                        android:id="@+id/waveform_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="#FAFAFA"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- 12路输出强度控制 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12路输出强度控制"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- 第一行控制器 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <!-- 通道1 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch1_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch1_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch1_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道2 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch2_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch2_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch2_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道3 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch3_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch3_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch3_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道4 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch4_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch4_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch4_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 第二行控制器 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <!-- 通道5 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch5_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch5_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch5_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道6 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch6_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch6_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch6_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道7 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch7_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch7_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch7_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道8 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="8路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch8_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch8_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch8_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 第三行控制器 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- 通道9 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch9_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch9_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch9_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道10 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch10_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch10_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch10_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道11 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="11路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch11_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch11_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="0"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch11_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 通道12 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12路"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+                            android:layout_marginBottom="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <Button
+                                android:id="@+id/btn_ch12_minus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="−"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                            <TextView
+                                android:id="@+id/tv_ch12_value"
+                                android:layout_width="40dp"
+                                android:layout_height="32dp"
+                                android:text="50"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:gravity="center"
+                                android:background="#FAFAFA"
+                                android:layout_marginHorizontal="4dp" />
+
+                            <Button
+                                android:id="@+id/btn_ch12_plus"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:text="+"
+                                android:textSize="16sp"
+                                android:backgroundTint="#F0F0F0"
+                                android:textColor="#000000"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:padding="0dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>
